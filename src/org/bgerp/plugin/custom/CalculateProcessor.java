@@ -1,4 +1,4 @@
-package org.bgerp.plugin.custom.bitel;
+package org.bgerp.plugin.custom;
 
 import ru.bgcrm.event.Event;
 import ru.bgcrm.event.ProcessMarkedActionEvent;
