@@ -11,8 +11,9 @@ public class Calculator {
     public static final int PARAM_EMAIL_ID = 53;
     /** Sessions limit, type 'list'. */
     public static final int PARAM_SESSIONS_ID = 54;
-    /* private static final int PARAM_SESSIONS_VAL_LESS_10 = 1;
-    private static final int PARAM_SESSIONS_VAL_MORE_10 = 2; */
+    
+
+    //todo cache
     
     /** Plugin prices, type 'listcount' */
     private static final int PARAM_PRICE_RUB_ID = 50;

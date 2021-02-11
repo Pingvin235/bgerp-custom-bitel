@@ -6,6 +6,12 @@
 $$.custom = new function() {
 	const debug = $$.debug("custom");
 	
-	
-	// public functions
+	this.license = new function() {
+		const calc = (processIds) => {
+			
+		}
+
+		// public functions
+		this.calc = calc;
+	}
 }
