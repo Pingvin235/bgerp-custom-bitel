@@ -1,7 +1,9 @@
 package org.bgerp.plugin.custom;
 
+import java.sql.Connection;
 import java.util.Map;
 
+import ru.bgcrm.event.EventProcessor;
 import ru.bgcrm.plugin.Endpoint;
 import ru.bgcrm.util.ParameterMap;
 
@@ -23,8 +25,13 @@ public class Plugin extends ru.bgcrm.plugin.Plugin {
 
     @Override
     public Map<String, String> getEndpoints() {
-        return Map.of(
-            Endpoint.JS, Endpoint.getPathPluginJS(ID)
-        );
+        return Map.of(Endpoint.JS, Endpoint.getPathPluginJS(ID));
+    }
+
+    @Override
+    public void init(Connection con) throws Exception {
+        super.init(con);
+
+        EventProcessor.subscribe();
     }
 }
