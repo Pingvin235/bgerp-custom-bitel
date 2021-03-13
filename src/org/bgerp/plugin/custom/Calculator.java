@@ -25,12 +25,12 @@ public class Calculator extends Cache<Calculator> {
     
     private static CacheHolder<Calculator> holder = new CacheHolder<>(new Calculator());
 
-    private Map<Integer, Map
+    /* private Map<Integer, Map */
 
     protected Calculator newInstance() {
-        var instance 
-        return new Calcu
-    }
+        //var instance 
+        return null;
+    } 
 
     //todo cache
 }

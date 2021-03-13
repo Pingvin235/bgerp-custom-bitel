@@ -1,2 +1,3 @@
 = BGERP custom for BiTel
+
 See: https://bgerp.org/doc/3.0/manual/kernel/extension.html#custom

@@ -32,6 +32,6 @@ public class Plugin extends ru.bgcrm.plugin.Plugin {
     public void init(Connection con) throws Exception {
         super.init(con);
 
-        EventProcessor.subscribe();
+        //EventProcessor.subscribe();
     }
 }
