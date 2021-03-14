@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 import ru.bgcrm.event.EventProcessor;
+import ru.bgcrm.event.ParamChangedEvent;
 import ru.bgcrm.plugin.Endpoint;
 import ru.bgcrm.util.ParameterMap;
 
@@ -32,6 +33,11 @@ public class Plugin extends ru.bgcrm.plugin.Plugin {
     public void init(Connection con) throws Exception {
         super.init(con);
 
-        //EventProcessor.subscribe();
+        EventProcessor.subscribe((e, conSet) -> {
+            var paramId = e.getParameter().getId();
+            if (paramId == PriceCalculator.PARAM_PRICE_EUR_ID || paramId == PriceCalculator.PARAM_PRICE_RUB_ID) {
+                PriceCalculator.flush();
+            }
+        }, ParamChangedEvent.class);
     }
 }

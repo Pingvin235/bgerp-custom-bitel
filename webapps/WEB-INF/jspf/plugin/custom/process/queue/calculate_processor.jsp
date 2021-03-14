@@ -4,20 +4,19 @@
 <form action="/open/plugin/custom/calculate.do">
 	<input type="hidden" name="processIds"/>
 
-	<ui:combo-single hiddenName="mode" widthTextValue="200px"
+	<ui:combo-single hiddenName="modeId" widthTextValue="200px"
 		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Calculator.PARAM_MODE_ID)%>"/>
 
 	<ui:combo-single 
-		hiddenName="sessions" prefixText="${l.l('Сессий')}:" styleClass="ml05"
+		hiddenName="sessionsId" prefixText="${l.l('Сессий')}:" styleClass="ml05"
 		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Calculator.PARAM_SESSIONS_ID)%>"/>
 
-	<button class="btn-grey ml1" onclick="
+	<button class="btn-grey ml1" type="button" onclick="
 		const processIds = getCheckedProcessIds();
 		if (!processIds) {
 			alert('${l.l('Выберите плагины!')}');
 			return;
 		}
+		//const url = '/open/plugin/custom/calculate.do?p'
 	">${l.l('Посчитать')}</button>
-
-	
 </form>
