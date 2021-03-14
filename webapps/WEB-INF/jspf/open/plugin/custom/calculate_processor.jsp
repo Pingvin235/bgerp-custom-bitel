@@ -4,6 +4,8 @@
 <c:set var="resultUiid" value="${u:uiid()}"/>
 
 <form action="/open/plugin/custom/calculate.do">
+	<input type="hidden" name="action" value="calc"/>
+
 	<ui:combo-single hiddenName="modeId" widthTextValue="200px"
 		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Calculator.PARAM_MODE_ID)%>"/>
 
@@ -20,5 +22,6 @@
 		$$.ajax.load($$.ajax.formUrl(this.form) + '&processIds=' + processIds, $('#${resultUiid}'));
 	">${l.l('Посчитать')}</button>
 </form>
-<div id="${resultUiid}">
+<div id="${resultUiid}" class="in-inline-block">
+	<%-- calculation result will be put here --%>
 </div>
