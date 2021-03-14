@@ -19,7 +19,7 @@ import ru.bgerp.util.Log;
  * Calculator for license prices.
  * @author Shamil Vakhitov
  */
-public class PriceCalculator extends Cache<PriceCalculator> {
+public class Calculator extends Cache<Calculator> {
     private static final Log log = Log.getLog();
 
     /** Contact E-Mail, type 'email' */
@@ -46,7 +46,7 @@ public class PriceCalculator extends Cache<PriceCalculator> {
     public static final int PROCESS_STATUS_OPEN_ID = 1;
     public static final int PROCESS_STATUS_SUPPORT_ID = 10;
 
-    private static CacheHolder<PriceCalculator> holder = new CacheHolder<>(new PriceCalculator());
+    private static CacheHolder<Calculator> holder = new CacheHolder<>(new Calculator());
 
     /**
      * 
@@ -105,10 +105,10 @@ public class PriceCalculator extends Cache<PriceCalculator> {
 
     private Map<SubscriptionKey, Map<Integer, ParameterListCountValue>> prices;
 
-    private PriceCalculator() {}
+    private Calculator() {}
 
-    protected PriceCalculator newInstance() {
-        var instance = new PriceCalculator();
+    protected Calculator newInstance() {
+        var instance = new Calculator();
 
         instance.prices = new HashMap<>(100);
 
@@ -134,7 +134,7 @@ public class PriceCalculator extends Cache<PriceCalculator> {
         return instance;
     }
 
-    private void loadPrices(PriceCalculator instance, ParamValueDAO paramDao, int processId, int paramId) throws Exception {
+    private void loadPrices(Calculator instance, ParamValueDAO paramDao, int processId, int paramId) throws Exception {
         var key = new SubscriptionKey(processId, paramId);
         var prices = paramDao.getParamListCount(processId, paramId);
         instance.prices.put(key, prices);

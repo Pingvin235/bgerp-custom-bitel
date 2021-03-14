@@ -1,9 +1,9 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
 <%@ include file="/WEB-INF/jspf/taglibs.jsp"%>
 
-<form action="/open/plugin/custom/calculate.do">
-	<input type="hidden" name="processIds"/>
+<c:set var="resultUiid" value="${u:uiid()}"/>
 
+<form action="/open/plugin/custom/calculate.do">
 	<ui:combo-single hiddenName="modeId" widthTextValue="200px"
 		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Calculator.PARAM_MODE_ID)%>"/>
 
@@ -17,6 +17,8 @@
 			alert('${l.l('Выберите плагины!')}');
 			return;
 		}
-		//const url = '/open/plugin/custom/calculate.do?p'
+		$$.ajax.load($$.ajax.formUrl(this.form) + '&processIds=' + processIds, $('#${resultUiid}'));
 	">${l.l('Посчитать')}</button>
 </form>
+<div id="${resultUiid}">
+</div>

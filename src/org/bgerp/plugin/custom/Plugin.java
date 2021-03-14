@@ -35,8 +35,8 @@ public class Plugin extends ru.bgcrm.plugin.Plugin {
 
         EventProcessor.subscribe((e, conSet) -> {
             var paramId = e.getParameter().getId();
-            if (paramId == PriceCalculator.PARAM_PRICE_EUR_ID || paramId == PriceCalculator.PARAM_PRICE_RUB_ID) {
-                PriceCalculator.flush();
+            if (paramId == Calculator.PARAM_PRICE_EUR_ID || paramId == Calculator.PARAM_PRICE_RUB_ID) {
+                Calculator.flush();
             }
         }, ParamChangedEvent.class);
     }

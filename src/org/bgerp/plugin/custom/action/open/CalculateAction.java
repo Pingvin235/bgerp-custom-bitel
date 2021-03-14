@@ -13,7 +13,7 @@ import ru.bgcrm.util.sql.ConnectionSet;
 
 @Action(path = "/open/plugin/custom/calculate")
 public class CalculateAction extends BaseAction {
-    private static final String JSP_PATH = PATH_JSP_OPEN + "/" + Plugin.ID;
+    private static final String JSP_PATH = PATH_JSP_OPEN_PLUGIN + "/" + Plugin.ID;
 
     @Override
     protected ActionForward unspecified(ActionMapping mapping, DynActionForm form, ConnectionSet conSet) throws Exception {
@@ -25,6 +25,6 @@ public class CalculateAction extends BaseAction {
 
         // 
 
-        return data(conSet, null, JSP_PATH + "/calc_result.jsp");
+        return data(conSet, null, JSP_PATH + "/calculate_result.jsp");
     }
 }
