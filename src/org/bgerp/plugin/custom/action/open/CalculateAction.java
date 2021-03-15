@@ -33,9 +33,11 @@ public class CalculateAction extends BaseAction {
         int sessionsId = form.getParamInt("sessionsId");
         var processIds = Utils.toIntegerSet(form.getParam("processIds"));
 
-        BigDecimal cost = Calculator.getCost(modeId, sessionsId, processIds);
-        form.setResponseData("cost", cost);
+        
 
-        return data(conSet, null, JSP_PATH + "/calculate_result.jsp");
+        /* BigDecimal cost = Calculator.getCost(modeId, sessionsId, processIds);
+        form.setResponseData("cost", cost); */
+
+        return status(conSet, form);
     }
 }

@@ -11,5 +11,6 @@
 
 	<input type="text" size="20" name="email" placeholder="E-Mail" class="ml05"/>
 
-	<button class="btn-grey ml1" type="button">${l.l('Заказать')}</button>
+	<button class="btn-grey ml1" type="button" 
+			onclick="$$.ajax.post(this.form)">${l.l('Заказать')}</button>
 </html:form>
