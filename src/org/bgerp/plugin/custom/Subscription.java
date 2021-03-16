@@ -19,7 +19,7 @@ import ru.bgerp.util.Log;
  * Calculator for license prices.
  * @author Shamil Vakhitov
  */
-public class Calculator extends Cache<Calculator> {
+public class Subscription extends Cache<Subscription> {
     private static final Log log = Log.getLog();
 
     /** Contact E-Mail, type 'email' */
@@ -33,8 +33,6 @@ public class Calculator extends Cache<Calculator> {
     
     /** Sessions limit, type 'list'. */
     public static final int PARAM_SESSIONS_ID = 54;
-    /* private static final int PARAM_SESSIONS_VAL_0_10 = 1;
-    private static final int PARAM_SESSIONS_VAL_11_UNL = 2; */
 
     /** Plugin prices, type 'listcount' */
     public static final int PARAM_PRICE_RUB_ID = 50;
@@ -46,7 +44,10 @@ public class Calculator extends Cache<Calculator> {
     public static final int PROCESS_STATUS_OPEN_ID = 1;
     public static final int PROCESS_STATUS_SUPPORT_ID = 10;
 
-    private static CacheHolder<Calculator> holder = new CacheHolder<>(new Calculator());
+    /** Process type ID for Subscription. */
+    public static final int PROCESS_TYPE_SUBSCRIPTION_ID = 16;
+
+    private static CacheHolder<Subscription> holder = new CacheHolder<>(new Subscription());
 
     /**
      * 
@@ -105,10 +106,10 @@ public class Calculator extends Cache<Calculator> {
 
     private Map<SubscriptionKey, Map<Integer, ParameterListCountValue>> prices;
 
-    private Calculator() {}
+    private Subscription() {}
 
-    protected Calculator newInstance() {
-        var instance = new Calculator();
+    protected Subscription newInstance() {
+        var instance = new Subscription();
 
         instance.prices = new HashMap<>(100);
 
@@ -134,7 +135,7 @@ public class Calculator extends Cache<Calculator> {
         return instance;
     }
 
-    private void loadPrices(Calculator instance, ParamValueDAO paramDao, int processId, int paramId) throws Exception {
+    private void loadPrices(Subscription instance, ParamValueDAO paramDao, int processId, int paramId) throws Exception {
         var key = new SubscriptionKey(processId, paramId);
         var prices = paramDao.getParamListCount(processId, paramId);
         instance.prices.put(key, prices);

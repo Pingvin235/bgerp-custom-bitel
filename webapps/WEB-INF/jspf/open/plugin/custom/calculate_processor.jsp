@@ -3,15 +3,15 @@
 
 <c:set var="resultUiid" value="${u:uiid()}"/>
 
-<form action="/open/plugin/custom/calculate.do">
+<form action="/open/plugin/custom/subscription.do">
 	<input type="hidden" name="action" value="calc"/>
 
 	<ui:combo-single hiddenName="modeId" widthTextValue="200px"
-		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Calculator.PARAM_MODE_ID)%>"/>
+		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Subscription.PARAM_MODE_ID)%>"/>
 
 	<ui:combo-single 
 		hiddenName="sessionsId" prefixText="${l.l('Сессий')}:" styleClass="ml05"
-		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Calculator.PARAM_SESSIONS_ID)%>"/>
+		list="<%=ru.bgcrm.cache.ParameterCache.getListParamValues(org.bgerp.plugin.custom.Subscription.PARAM_SESSIONS_ID)%>"/>
 
 	<button class="btn-grey ml1" type="button" onclick="
 		const processIds = getCheckedProcessIds();
