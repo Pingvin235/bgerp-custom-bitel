@@ -50,10 +50,10 @@ public class Subscription extends Cache<Subscription> {
     private static CacheHolder<Subscription> holder = new CacheHolder<>(new Subscription());
 
     /**
-     * 
-     * @param modeId subscription mode ID
-     * @param sessionsId sessions limit ID
-     * @param processIds
+     * Get subscription's cost.
+     * @param modeId subscription mode ID.
+     * @param sessionsId sessions limit ID.
+     * @param processIds plugin processes IDs.
      * @return
      */
     public static BigDecimal getCost(int modeId, int sessionsId, Collection<Integer> processIds) {

@@ -5,6 +5,23 @@
 	<p><ru>Посчитать</ru><en>Caclulate</en></p>
 	<p><ru>Стоимость в месяц</ru><en>Cost per month</en></p>
 	<p><ru>Заказать</ru><en>Order</en></p>
+	<p><ru>IP адрес не определён.</ru><en>IP address has not defined.</en></p>
+	<p><ru>Следующий заказ с этого IP можно сделать через: %s</ru><en>The next order from your IP may be done after: %s</en></p>
+	<p>
+		<sys>subscription.mail.text</sys>
+		<ru>
+			Уважаемый клиент,
+
+			вы запросили подписку на продукт BGERP в составе следующих услуг:
+			%s
+			
+			Ежемесячная стоимость подписки составляет:
+			%s
+
+			
+		</ru>
+		<en></en>
+	</p>
 	<!--
 	<p><ru></ru><en></en></p>
 	-->
